@@ -201,7 +201,6 @@ class Autenticador:
     def menu_autenticacao(self):
         
         while True:
-            os.system('clear')
             print("\n------ MENU AUTENTICAÇÃO ------")
             print("1. Cadastrar usuário")
             print("2. Fazer login")

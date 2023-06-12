@@ -3,7 +3,6 @@ from datetime import datetime
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import smtplib
-import os
 import pytz
 import json
 
@@ -226,7 +225,6 @@ class Projeto(Autenticador):
 
 
     def menu(self):
-        os.system('clear')
         while True:
             print("\n===== Menu =====")
             print("1 - Cadastrar Projeto")
