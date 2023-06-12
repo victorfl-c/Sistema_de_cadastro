@@ -249,7 +249,7 @@ class Projeto(Autenticador):
             elif opcao == '5':
                 self.menu_autenticacao()
             elif opcao == '0':
-                self.excluir_arquivo('online.json')
+                self.excluir_arquivo('datasets/online.json')
 
                 break
             else:
