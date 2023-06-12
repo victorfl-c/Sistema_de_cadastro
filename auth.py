@@ -15,6 +15,9 @@ class Autenticador:
     # Carregar o arquivo de usuários
     def carregar_usuarios(self):
         try:
+            if not os.path.exists("datasets"):
+                os.makedirs("datasets")
+                
             with open(self.arquivo_usuarios, "r") as arquivo:
                 self.usuarios = json.load(arquivo)
         # Criar arquivo caso não exista
@@ -40,9 +43,9 @@ class Autenticador:
             self.usuario_online["token"] = token
             json.dump(self.usuario_online, arquivo)
 
-    
+
     def criar_arquivo_usuarios(self):
-        if not os.path.exists(self.arquivo_usuarios):
+        if not os.path.exists(self.arquivo_usuarios):           
             with open(self.arquivo_usuarios, "x") as arquivo:
                 arquivo.write("{}")
     
