@@ -64,13 +64,13 @@ class Projeto(Autenticador):
 
     def enviar_email(self, dados, assunto):
         if self.chave_app["token"] == 'n/a':
-          print('Senha de app não cadastrada (notificação por email desativada)')
+          print('Senha de app não cadastrada (notificação por e-mail desativada)')
           return 
 
         else:
           while True:
-            email_remetente = input("Insira o e-mail do remetente")
-            conf = input("Confirmar e-mail(sn)").lower() == 's'
+            email_remetente = input("Insira o e-mail do remetente: ")
+            conf = input("Confirmar e-mail? (s/n) ").lower() == 's'
 
             if conf == True:
               break
@@ -159,7 +159,7 @@ class Projeto(Autenticador):
 
         except ValueError:
             # Tratamento de erro para valor inválido inserido para a quantidade de participantes
-            print("Erro: Valor inválido inserido para a quantidade de participantes.")
+            print("Erro: valor inválido inserido para a quantidade de participantes.")
             self.cadastrar_projeto()
 
         except Exception as e:
@@ -249,7 +249,7 @@ class Projeto(Autenticador):
             elif opcao == '5':
                 self.menu_autenticacao()
             elif opcao == '0':
-                self.excluir_arquivo('dataset/online.json')
+                self.excluir_arquivo('online.json')
 
                 break
             else:

@@ -3,25 +3,27 @@ import getpass
 import json
 
 
+# Criar classe Autenticador
 class Autenticador:
-
+    # Definir os atributos da classe
     def __init__(self):
         self.arquivo_usuarios = "datasets/usuarios.json"
         self.usuarios = self.carregar_usuarios()
         self.arquivo_usuario_online = "datasets/online.json"
         self.usuario_online = self.carregar_usuario_online()
    
-
+    # Carregar o arquivo de usuários
     def carregar_usuarios(self):
         try:
             with open(self.arquivo_usuarios, "r") as arquivo:
                 self.usuarios = json.load(arquivo)
+        # Criar arquivo caso não exista
         except (FileNotFoundError, json.JSONDecodeError):
             self.usuarios = {}
         
         return self.usuarios
     
-
+    # carregar arquivo dos usuários online
     def carregar_usuario_online(self):
         try:
             with open(self.arquivo_usuario_online, "r") as arquivo:
@@ -31,14 +33,14 @@ class Autenticador:
         
         return self.usuario_online
     
-
+    # Ler as informações do usuário necessárias para o envio de emails
     def autenticar_app_email(self, email, token):
         with open(self.arquivo_usuario_online, "w") as arquivo:
-            self.usuario_online["email"] = email
+            self.usuario_online["e-mail"] = email
             self.usuario_online["token"] = token
             json.dump(self.usuario_online, arquivo)
 
-
+    
     def criar_arquivo_usuarios(self):
         if not os.path.exists(self.arquivo_usuarios):
             with open(self.arquivo_usuarios, "x") as arquivo:
@@ -82,7 +84,7 @@ class Autenticador:
 
 
     def cadastrar_email(self):
-        email = input("Digite seu E-mail: ")
+        email = input("Digite seu e-mail: ")
 
         while not email:
             return self.cadastrar_email()
@@ -112,11 +114,13 @@ class Autenticador:
         return senha
 
     def cadastrar_token(self):
-        print('''\nA senha de app serve para o envio de e-mails automáticos\n\
-            a cada alteração nos projetos criados, atualizados ou excluídos''')
-        
-        token = getpass.getpass("Copie sua senha de app do gmail e cole aqui: ")
+        print("\nA Senha de App serve para habilitar o envio de e-mails automáticos")
+        print("A cada vez que houver projetos criados, atualizados ou excluídos")
+        print("Central de ajuda: https://support.google.com/accounts/answer/185833?hl=pt-BR")
+        print("Para prosseguir sem uma, pressione [Enter])")
 
+        token = getpass.getpass("Copie sua senha de app do gmail e cole aqui: ")
+        
         while not token:
             conf = input("Seguir sem uma senha de app? (s/n): ").lower() == 's'
 
