@@ -11,6 +11,9 @@ def main():
             projeto = Projeto('datasets/projetos.json')
             projeto.menu()
             break
+        
+        else:
+            break
 
 
 if __name__ == '__main__':

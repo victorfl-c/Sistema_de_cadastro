@@ -39,7 +39,7 @@ class Autenticador:
     # Ler as informações do usuário necessárias para o envio de emails
     def autenticar_app_email(self, email, token):
         with open(self.arquivo_usuario_online, "w") as arquivo:
-            self.usuario_online["e-mail"] = email
+            self.usuario_online["email"] = email
             self.usuario_online["token"] = token
             json.dump(self.usuario_online, arquivo)
 
@@ -223,7 +223,7 @@ class Autenticador:
             elif opcao == "4":
                 self.alterar_senha()
             elif opcao == "0":
-                print("Encerrando o programa...")                
-                return False
+                print("Encerrando o programa...")
+                return False                
             else:
                 print("Opção inválida. Digite um número válido.")
