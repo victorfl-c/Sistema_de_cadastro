@@ -10,8 +10,7 @@ def main():
         if autenticador.menu_autenticacao():
             projeto = Projeto('datasets/projetos.json')
             projeto.menu()
-            break
-        
+
         else:
             break
 
