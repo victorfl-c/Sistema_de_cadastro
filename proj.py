@@ -249,6 +249,6 @@ class Projeto(Autenticador):
             elif opcao == '0':
                 self.excluir_arquivo('datasets/online.json')
                 break
-            
+                
             else:
                 print("\nOpção inválida! Digite uma opção válida.")
