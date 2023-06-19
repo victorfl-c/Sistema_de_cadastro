@@ -68,8 +68,8 @@ class Projeto(Autenticador):
 
         else:
           while True:
-            email_remetente = input("Insira o e-mail do remetente: ")
-            conf = input("Confirmar e-mail? (s/n) ").lower() == 's'
+            email_remetente = input("Insira o e-mail do destinatário: ")
+            conf = input("Confirmar e-mail? (s/n): ").lower() == 's'
 
             if conf == True:
               break

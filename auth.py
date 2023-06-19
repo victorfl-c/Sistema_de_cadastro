@@ -78,7 +78,7 @@ class Autenticador:
 
         print(f"Nome: {nome}")
 
-        conf = input("Confirmar nome? (s/n) ").lower() == 's'
+        conf = input("Confirmar nome? (s/n): ").lower() == 's'
 
         if not conf:
             self.cadastrar_nome()
@@ -92,7 +92,7 @@ class Autenticador:
         while not email:
             return self.cadastrar_email()
 
-        conf = input("Confirmar e-mail? (s/n) ").lower() == 's'
+        conf = input("Confirmar e-mail? (s/n): ").lower() == 's'
 
         if not conf:
             return self.cadastrar_email()
